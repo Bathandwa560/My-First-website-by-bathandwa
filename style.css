@@ -1,0 +1,58 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body, html { height: 100%; overflow: hidden; background: #000; }
+
+.slideshow-container { position: relative; height: 100vh; width: 100%; overflow: hidden; }
+
+.mySlide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 2s ease-in-out; }
+.mySlide img { width: 100%; height: 100%; object-fit: cover; animation: kenBurns 12s ease-in-out forwards; }
+
+@keyframes kenBurns { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+.overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); }
+
+.caption { position: absolute; bottom: 15%; left: 5%; max-width: 600px; color: #00e6ff; opacity: 0; transform: translateY(20px); transition: opacity 2s ease, transform 2s ease; }
+.caption h2 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+.caption p { font-size: 1.2em; line-height: 1.5; text-shadow: 1px 1px 5px rgba(0,0,0,0.7); }
+
+.active { opacity: 1; }
+.active .caption { opacity: 1; transform: translateY(0); }
+
+.prev, .next { cursor: pointer; position: absolute; top: 50%; padding: 16px; margin-top: -22px; color: white; font-size: 20px; background: rgba(0,0,0,0.5); border-radius: 50%; user-select: none; transition: 0.3s; z-index: 2; }
+.prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.progress-bar { position: absolute; bottom: 0; left: 0; width: 100%; height: 5px; background: rgba(255,255,255,0.2); }
+.progress { width: 0%; height: 100%; background: #00e6ff; transition: width 12s linear; }
+
+.music-control { position: absolute; bottom: 20px; right: 20px; z-index: 2; }
+.music-control button { background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px 15px; font-size: 18px; border-radius: 5px; cursor: pointer; }
+.music-control button:hover { background: rgba(0,0,0,0.8); }
+
+.cta-button { display: inline-block; margin-top: 20px; padding: 12px 25px; background: #00e6ff; color: #000; font-weight: bold; text-decoration: none; border-radius: 8px; transition: 0.3s; }
+.cta-button:hover { background: #00b8cc; }
+
+/* -------- MATRIX SLIDE -------- */
+.matrix-slide { background: black; position: relative; }
+#matrixCanvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+.matrix-slide .matrix-images { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; }
+.matrix-slide .matrix-img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0; transition: opacity 2s ease-in-out; }
+.matrix-slide .matrix-img.active { opacity: 1; }
+
+.matrix-bold-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 2px 2px 15px #0f0, 0 0 10px #0f0;
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
+}
+
+.matrix-slide .caption { position: absolute; bottom: 20%; left: 5%; max-width: 700px; color: #00ff00; font-family: 'Courier New', monospace; z-index: 2; opacity: 0; transform: translateY(20px); transition: opacity 2s ease, transform 2s ease; }
+.matrix-slide .caption h2 { font-size: 3em; text-shadow: 0 0 10px #00ff00; }
+.matrix-slide .caption p { font-size: 1.2em; text-shadow: 0 0 5px #00ff00; }
